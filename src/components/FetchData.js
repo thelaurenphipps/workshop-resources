@@ -4,6 +4,10 @@ export default {
     props: {
         url: {
             type: String
+        },
+        delay: {
+            type: Number,
+            default: 200
         }
     },
     data() {
@@ -12,6 +16,14 @@ export default {
           isPending: false,
           error: null
       }
+    },
+    watch: {
+        url: {
+            handler () {
+                setTimeout(this.fetch, this.delay);
+            },
+            immediate: true
+        }
     },
     methods: {
         fetch () {

@@ -48,6 +48,9 @@
           </div>
         </template>
       </FetchData>
+
+      <!-- Counter examples -->
+      {{ counterCount }}
       <!-- TASK ENDS HERE -->
 
       <!-- ADVANCED TASK USAGE -->
@@ -72,6 +75,7 @@
 <script>
 // import { ref, computed } from '@vue/composition-api'
 import FetchData from '@/components/FetchData'
+import useCounter from '@/composables/useCounter'
 // import useFetchData from '@/composables/useFetchData'
 import PulseLoader from 'vue-spinner/src/PulseLoader'
 import WithMousePos from '@/components/MousePos'
@@ -84,8 +88,8 @@ export default {
     WithMousePos
   },
   setup () {
-    const { x, y } = useMousePos()
-    return { mouseX: x, mouseY: y }
+    const { x, y } = useMousePos();
+    return { mouseX: x, mouseY: y, counterCount: count }
   },
   data () {
     return {
