@@ -1,13 +1,15 @@
 <template>
   <AppDropdown>
-    <slot name="selected">{{value}}</slot>
-      <template v-slot:content>
-        <ul>
-            <li v-for="option in options" :key="option.name" @click="update(option)">
-                <slot name="option" v-bind="{option}">{{option.name}}</slot>
-            </li>
-        </ul>
-      </template>
+    <slot name="selected">{{value}}</slot> <!-- let Task1.vue uses this exposed slot-->
+    <template v-slot:content> <!-- use the AppDropdown slot -->
+      <ul>
+        <li v-for="option in options" :key="option.name" @click="update(option)"> <!-- set selected value -->
+            <slot name="option" v-bind="{option}"> <!-- let Task1.vue uses this exposed slot; bind to option so variable is "passed in" -->
+                {{option.name}}
+            </slot>
+        </li>
+      </ul>
+    </template>
   </AppDropdown>
 </template>
 
