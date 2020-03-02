@@ -1,6 +1,13 @@
 <template>
   <AppDropdown>
-    Your code here
+    <slot name="selected">{{value}}</slot>
+      <template v-slot:content>
+        <ul>
+            <li v-for="option in options" :key="option.name" @click="update(option)">
+                <slot name="option" v-bind="{option}">{{option.name}}</slot>
+            </li>
+        </ul>
+      </template>
   </AppDropdown>
 </template>
 
