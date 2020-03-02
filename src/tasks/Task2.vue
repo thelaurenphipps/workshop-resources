@@ -24,42 +24,41 @@
       Don’t push that button!
     </AppButton>
 
-    <AppModal
-      v-if="isModalOpen"
-      @close="isModalOpen = false"
-    >
-      <h3 class="confirmation-message">
-        So you really did it?
-      </h3>
-      <div class="buttons">
-        <AppButton @click="confirm">
-          Confirm
-        </AppButton>
-        <AppButton type="secondary" @click="isModalOpen = false">
-          Cancel
-        </AppButton>
-      </div>
-    </AppModal>
+    <!-- ORIGINAL USAGE. UNCOMMENT WHEN READY -->
+<!--    <AppModal-->
+<!--      v-if="isModalOpen"-->
+<!--      @close="isModalOpen = false"-->
+<!--    >-->
+<!--      <h3 class="confirmation-message">-->
+<!--        So you really did it?-->
+<!--      </h3>-->
+<!--      <div class="buttons">-->
+<!--        <AppButton @click="confirm">-->
+<!--          Confirm-->
+<!--        </AppButton>-->
+<!--        <AppButton type="secondary" @click="isModalOpen = false">-->
+<!--          Cancel-->
+<!--        </AppButton>-->
+<!--      </div>-->
+<!--    </AppModal>-->
 
     <!-- DESIRED USAGE. UNCOMMENT WHEN READY -->
-    <!-- <ConfirmationModal
+     <ConfirmationModal
       v-if="isModalOpen"
       message="Have you finished the task?"
       @confirm="confirm"
       @close="isModalOpen = false"
-    /> -->
+      />
     <!-- TASK ENDS HERE -->
   </div>
 </template>
 
 <script>
-import AppModal from '@/components/AppModal'
-// import ConfirmationModal from '@/components/ConfirmationModal'
+import ConfirmationModal from '@/components/ConfirmationModal'
 
 export default {
   components: {
-    AppModal,
-    // ConfirmationModal
+    ConfirmationModal
   },
   data () {
     return {
@@ -68,7 +67,7 @@ export default {
   },
   methods: {
     confirm () {
-      alert('Why would you do that?')
+      alert('Why would you do that?');
       this.isModalOpen = false
     }
   }
