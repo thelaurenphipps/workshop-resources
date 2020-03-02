@@ -50,6 +50,9 @@
       @close="isModalOpen = false"
       />
     <!-- TASK ENDS HERE -->
+
+    <!-- or could use jsx... it will look mostly the same in vue3 except the listeners will be part of attr -->
+
   </div>
 </template>
 
